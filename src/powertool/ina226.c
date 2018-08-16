@@ -124,7 +124,7 @@ int ina226_init(struct ina226_rail *rail)
 	}
 
 	/* All heavy computation stuff here please */
-	max_current_A = REG_MAX_EXP_CURRENT;
+	max_current_A = rail->user_max_current;
 	/* current_lsb = Maximum Expected Current / 2 pow 15 */
 	rail->current_lsb_A = max_current_A / (float) 32768;
 

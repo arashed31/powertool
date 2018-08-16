@@ -87,6 +87,21 @@ int __weak ina226_parse_config(struct ina226_rail *rail,
 		return 0;
 	}
 
+	if (!strncmp(param, "max_current", 11)) {
+		int ret;
+		float val;
+		const char *str = (const char *)data;
+		ret = sscanf(str, "%f", &val);
+		if (!ret) {
+			fprintf(stderr,
+				"Parse error of max_current for %s\n",
+				rail->name);
+			return -1;
+		}
+		rail->user_max_current = val;
+		return 0;
+	}
+
 	/* Umm... i dont know to deal with what you ask me */
 	return -1;
 }

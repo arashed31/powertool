@@ -61,6 +61,7 @@ struct ina226_rail {
 	u8	shunt_conv_time;
 	u8	bus_conv_time;
 
+	float	user_max_current;
 	float	shunt_resistor_value;
 	float	shunt_resistor_accuracy;
 
